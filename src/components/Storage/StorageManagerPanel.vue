@@ -168,6 +168,8 @@ import StorageItem from './StorageItem.vue'
 import Popper from 'vue-popperjs';
 import storageSettings from '@/components/Storage/StorageSettings.vue';
 import StorageCombination from "./StorageCombination.vue";
+// import * as api from "@/codegen/local_storage/api.ts";
+import {MountMethodsApi} from "@/codegen/local_storage/api.ts";
 
 export default {
   name: "storage-manager-panel",
@@ -221,7 +223,11 @@ export default {
 
   async created() {
     // get merge info
-    // TODO how to invoke this states code
+    // TODO how to invoke this openapi
+    // let mountAPI = new api.MountMethodsApi();
+    let mountAPI = new MountMethodsApi();
+    let mergeInfo = await mountAPI.getMounts();
+    console.log(mergeInfo);
     try {
       let hasMergeState = await this.$api.local_storage.getMergerfsInfo().then(res => res.status
       ).catch(err => err)

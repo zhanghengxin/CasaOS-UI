@@ -22,51 +22,51 @@ module.exports = {
     css: {
         extract: true
     },
-    // configureWebpack: {
-    //
-    //
-    //     module: {
-    //         rules: [
-    //             {
-    //                 test: /\.tsx?$/,
-    //                 loader: 'ts-loader',
-    //                 exclude: /node_modules/,
-    //                 options: {
-    //                     appendTsSuffixTo: [/\.vue$/],
-    //                     happyPackMode: true,
-    //                     // resolveTypeReferenceDirective: {
-    //                     //     '@': path.resolve(__dirname, 'src')
-    //                     // },
-    //
-    //                 },
-    //                 // "paths": {
-    //                 //     "@/*": [
-    //                 //         path.resolve(__dirname, 'src/*')
-    //                 //     ]
-    //                 // },
-    //                 // "compilerOptions": {
-    //                 //     "target": "esnext",
-    //                 //     "module": "esnext",
-    //                 //     "strict": true,
-    //                 //     "jsx": "preserve",
-    //                 //     "importHelpers": true,
-    //                 //     "moduleResolution": "node",
-    //                 //     "experimentalDecorators": true,
-    //                 //     "esModuleInterop": true,
-    //                 //     "allowSyntheticDefaultImports": true,
-    //                 //     "sourceMap": true,
-    //                 //     "baseUrl": ".",
-    //                 //     "types": [
-    //                 //         "webpack-env",
-    //                 //         "mocha",
-    //                 //         "chai"
-    //                 //     ],
-    //                 //
-    //                 // }
-    //             },
-    //         ],
-    //     },
-    // },
+    configureWebpack: {
+        module: {
+            rules: [
+                {
+                    test: /\.tsx?$/,
+                    loader: 'ts-loader',
+                    exclude: /node_modules/,
+                    options: {
+                        appendTsSuffixTo: [/\.vue$/],
+                        happyPackMode: true,
+                        // resolveTypeReferenceDirective: {
+                        //     '@': path.resolve(__dirname, 'src')
+                        // },
+                    },
+                    resolve: {
+                        extensions: ['.ts', '.tsx', '.js', '.vue', '.json']
+                    },
+                    // "paths": {
+                    //     "@/*": [
+                    //         path.resolve(__dirname, 'src/*')
+                    //     ]
+                    // },
+                    // "compilerOptions": {
+                    //     "target": "esnext",
+                    //     "module": "esnext",
+                    //     "strict": true,
+                    //     "jsx": "preserve",
+                    //     "importHelpers": true,
+                    //     "moduleResolution": "node",
+                    //     "experimentalDecorators": true,
+                    //     "esModuleInterop": true,
+                    //     "allowSyntheticDefaultImports": true,
+                    //     "sourceMap": true,
+                    //     "baseUrl": ".",
+                    //     "types": [
+                    //         "webpack-env",
+                    //         "mocha",
+                    //         "chai"
+                    //     ],
+                    //
+                    // }
+                },
+            ],
+        },
+    },
     chainWebpack: config => {
         // config.entry('app').clear().add('./src/main.js')
         // config.module.rule('ts').test(/\.tsx?$/).use('ts-loader').loader('ts-loader').end().use('cache-loader').loader('cache-loader').end().use('babel-loader').loader('babel-loader').end()
